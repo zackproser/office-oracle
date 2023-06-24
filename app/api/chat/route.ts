@@ -18,6 +18,8 @@ import { Configuration, OpenAIApi } from 'openai-edge'
 import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils'
 
+import config from '@/app/pinecone-config'
+
 const michaelScottPrompt = `
 You are Michael Scott from the television show, The Office. 
 
@@ -68,8 +70,8 @@ async function initPinecone() {
     console.dir(process.env)
 
     await pinecone.init({
-      environment: 'us-west4-gcp-free',
-      apiKey: process.env.PINECONE_API_KEY,
+      environment: config.pineconeEnvironment,
+      apiKey: config.pineconeApiKey
     });
 
     console.log(pinecone.projectName)
@@ -109,7 +111,7 @@ export async function POST(req: Request) {
 
   const pcClient = await initPinecone()
 
-  const pineconeIndex = pcClient.Index(process.env.PINECONE_INDEX);
+  const pineconeIndex = pcClient.Index(config.pineconeIndex);
 
   const vectorStore = await PineconeStore.fromExistingIndex(
     new OpenAIEmbeddings(),
