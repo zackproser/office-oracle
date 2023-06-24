@@ -63,14 +63,12 @@ async function initPinecone(): Promise<PineconeClient | undefined> {
   try {
     const pinecone = new PineconeClient()
 
-    pinecone.projectName = "the-office-oracle"
+    pinecone.projectName = ""
 
     await pinecone.init({
       environment: process.env.PINECONE_ENVIRONMENT ?? "",
       apiKey: process.env.PINECONE_API_KEY ?? ""
     });
-
-    console.log(pinecone.projectName)
 
     return pinecone
 
