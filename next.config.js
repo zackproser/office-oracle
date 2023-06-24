@@ -5,7 +5,7 @@ module.exports = {
     pineconeEnvironment: process.env.PINECONE_ENVIRONMENT,
     pineconeIndex: process.env.PINECONE_INDEX
 
-  }
+  },
   reactStrictMode: true,
   experimental: {
     serverActions: true,
