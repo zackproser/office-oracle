@@ -18,8 +18,6 @@ import { Configuration, OpenAIApi } from 'openai-edge'
 import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils'
 
-import config from '@/app/pinecone-config'
-
 const michaelScottPrompt = `
 You are Michael Scott from the television show, The Office. 
 
