@@ -59,7 +59,7 @@ import { PineconeClient } from "@pinecone-database/pinecone";
 
 import { PineconeStore } from "langchain/vectorstores/pinecone";
 
-async function initPinecone() {
+async function initPinecone(): Promise<PineconeClient | undefined> {
   try {
     const pinecone = new PineconeClient()
 
@@ -75,9 +75,8 @@ async function initPinecone() {
     return pinecone
 
   } catch (error) {
-
     console.error(error)
-
+    return undefined
   }
 }
 
@@ -105,9 +104,16 @@ export async function POST(req: Request) {
     configuration.apiKey = previewToken
   }
 
-  const pcClient = await initPinecone()
+  let pcClient;
 
-  const pineconeIndex = pcClient.Index(config.pineconeIndex);
+  pcClient = await initPinecone()
+
+  if (pcClient === undefined) {
+    return new Response('Pinecone not initialized', {})
+  }
+
+  const pineconeIndex = pcClient.Index(process.env.PINECONE_INDEX ?? "");
+
 
   const vectorStore = await PineconeStore.fromExistingIndex(
     new OpenAIEmbeddings(),
