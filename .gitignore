@@ -35,4 +35,4 @@ yarn-error.log*
 .contentlayer
 .env
 .vercel
-.vscode
+.vscode.cache_ggshield

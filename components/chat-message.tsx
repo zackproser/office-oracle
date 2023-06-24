@@ -8,6 +8,9 @@ import { MemoizedReactMarkdown } from '@/components/markdown'
 import { IconOpenAI, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
 
+import OfficeOracle from '@/app/oracle-images/office-oracle-6.png'
+import Image from 'next/image'
+
 export interface ChatMessageProps {
   message: Message
 }
@@ -26,7 +29,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
             : 'bg-primary text-primary-foreground'
         )}
       >
-        {message.role === 'user' ? <IconUser /> : <IconOpenAI />}
+        {message.role === 'user' ? <IconUser /> : <Image src={OfficeOracle} width={140} height={140} alt="The office oracle" />}
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedReactMarkdown
