@@ -1,9 +1,40 @@
 import { kv } from '@vercel/kv'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
+
+import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+
+const embeddings = new OpenAIEmbeddings();
+
 import { Configuration, OpenAIApi } from 'openai-edge'
 
 import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils'
+
+import { PineconeClient } from "@pinecone-database/pinecone";
+
+const pinecone = new PineconeClient();
+
+async function initPinecone() {
+  try {
+    const pinecone = new PineconeClient()
+
+    pinecone.projectName = "the-office-oracle"
+
+    await pinecone.init({
+      environment: process.env.PINECONE_ENVIRONMENT,
+      apiKey: process.env.PINECONE_API_KEY,
+    });
+
+    console.log(pinecone.projectName)
+
+    return pinecone
+
+  } catch (error) {
+
+    console.error(error)
+
+  }
+}
 
 export const runtime = 'edge'
 
@@ -15,6 +46,10 @@ const openai = new OpenAIApi(configuration)
 
 export async function POST(req: Request) {
   const json = await req.json()
+
+  console.log('POST function')
+  console.dir(json)
+
   const { messages, previewToken } = json
   const session = await auth()
 
@@ -27,6 +62,25 @@ export async function POST(req: Request) {
   if (previewToken) {
     configuration.apiKey = previewToken
   }
+
+  const pcClient = await initPinecone()
+
+  const indexesList = await pcClient.listIndexes();
+
+  console.log(`indexesList ${indexesList}`)
+
+  const queryVec = await embeddings.embedQuery(messages[0].content);
+
+  const index = pcClient.Index("the-office-oracle");
+  const queryRequest = {
+    vector: queryVec,
+    topK: 10,
+    includeValues: true,
+    includeMetadata: true,
+  };
+  const queryResponse = await index.query({ queryRequest });
+
+  console.log(`queryResponse: ${JSON.stringify(queryResponse)}`);
 
   const res = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
