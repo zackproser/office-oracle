@@ -66,7 +66,7 @@ async function initPinecone() {
     pinecone.projectName = "the-office-oracle"
 
     await pinecone.init({
-      environment: process.env.PINECONE_ENVIRONMENT,
+      environment: 'us-west4-gcp-free',
       apiKey: process.env.PINECONE_API_KEY,
     });
 
