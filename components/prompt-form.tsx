@@ -17,7 +17,6 @@ import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
 import loadingGif from '@/app/spinners/lamp-loading.gif'
 import Image from 'next/image'
 
-
 export interface PromptProps
   extends Pick<UseChatHelpers, 'input' | 'setInput'> {
   onSubmit: (value: string) => Promise<void>
