@@ -30,12 +30,7 @@ export function ChatMessageActions({
 
   const speakMichael = () => {
     if (isPlayed) return
-    AudioStream({
-      text: message.content,
-      apiKey: process.env.ELEVEN_LABS_API_KEY ?? "",
-      voiceId: process.env.ELEVEN_LABS_VOICE_ID ?? "",
-      voiceSettings: { stability: 0, similarity_boost: 0 }
-    })
+    AudioStream({ text: message.content })
     setPlayed(true)
   }
 
