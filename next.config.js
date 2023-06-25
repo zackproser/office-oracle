@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   env: {
-    pineconeApiKey: process.env.PINECONE_API_KEY,
-    pineconeEnvironment: process.env.PINECONE_ENVIRONMENT,
-    pineconeIndex: process.env.PINECONE_INDEX
-
+    ELEVEN_LABS_API_KEY: process.env.ELEVEN_LABS_API_KEY,
+    ELEVEN_LABS_VOICE_ID: process.env.ELEVEN_LABS_VOICE_ID
   },
   reactStrictMode: true,
   experimental: {
