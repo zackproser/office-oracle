@@ -2,6 +2,8 @@
 
 import { type Message } from 'ai'
 
+import { useEffect } from 'react'
+
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { IconCheck, IconCopy, IconUser } from '@/components/ui/icons'
@@ -33,6 +35,10 @@ export function ChatMessageActions({
     AudioStream({ text: message.content })
     setPlayed(true)
   }
+
+  useEffect(() => {
+    speakMichael()
+  }, [])
 
   return (
     <div
