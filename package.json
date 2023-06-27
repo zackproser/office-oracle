@@ -38,6 +38,7 @@
     "next-auth": "0.0.0-manual.e65faa1c",
     "next-themes": "^0.2.1",
     "openai-edge": "^0.5.1",
+    "peggy": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

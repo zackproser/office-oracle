@@ -61,7 +61,7 @@ dependencies:
     version: 10.1.1(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   langchain:
     specifier: ^0.0.96
-    version: 0.0.96(@pinecone-database/pinecone@0.1.6)(axios@1.4.0)
+    version: 0.0.96(@pinecone-database/pinecone@0.1.6)(axios@1.4.0)(peggy@3.0.2)
   nanoid:
     specifier: ^4.0.2
     version: 4.0.2
@@ -77,6 +77,9 @@ dependencies:
   openai-edge:
     specifier: ^0.5.1
     version: 0.5.1
+  peggy:
+    specifier: ^3.0.2
+    version: 3.0.2
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -3293,7 +3296,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /langchain@0.0.96(@pinecone-database/pinecone@0.1.6)(axios@1.4.0):
+  /langchain@0.0.96(@pinecone-database/pinecone@0.1.6)(axios@1.4.0)(peggy@3.0.2):
     resolution: {integrity: sha512-m1d0IWjwZK+D19uBfgmfp5sUTxJXcjJb/YuIyn2cGNmXGqOH2r2cl0TUnhuFKxTXpMTXgTywd7MYF5U5/qkNTQ==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -3460,6 +3463,7 @@ packages:
       openai: 3.3.0
       p-queue: 6.6.2
       p-retry: 4.6.2
+      peggy: 3.0.2
       uuid: 9.0.0
       yaml: 2.2.2
       zod: 3.21.4
@@ -4428,6 +4432,15 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /peggy@3.0.2:
+    resolution: {integrity: sha512-n7chtCbEoGYRwZZ0i/O3t1cPr6o+d9Xx4Zwy2LYfzv0vjchMBU0tO+qYYyvZloBPcgRgzYvALzGWHe609JjEpg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      commander: 10.0.1
+      source-map-generator: 0.8.0
+    dev: false
+
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -4959,6 +4972,11 @@ packages:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
     dev: true
+
+  /source-map-generator@0.8.0:
+    resolution: {integrity: sha512-psgxdGMwl5MZM9S3FWee4EgsEaIjahYV5AzGnwUvPhWeITz/j6rKpysQHlQ4USdxvINlb8lKfWGIXwfkrgtqkA==}
+    engines: {node: '>= 10'}
+    dev: false
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
