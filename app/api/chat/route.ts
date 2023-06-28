@@ -58,35 +58,6 @@ export async function POST(req: Request) {
     { pineconeIndex }
   );
 
-  /*const questionGenerator = new LLMChain({
-    llm: new OpenAI({ temperature: 0 }, configuration),
-    prompt: CONDENSE_PROMPT,
-  });
-
-  const examplePrompt = new PromptTemplate({
-    inputVariables: ['episode_summary', 'question', ' answer'],
-    template: `${beingMichaelScott} episode_summary: {episode_summary} question: {text} Answer: {answer}`,
-  })
-
-  const fewShotPromptTemplate = new FewShotPromptTemplate({
-    inputVariables: ['episode_summary'],
-    examples,
-    examplePrompt
-  })
-
-  const docChain = loadQAChain(
-    new OpenAI({
-      temperature: 0,
-    }, configuration),
-    { prompt: fewShotPromptTemplate, type: "stuff" },
-  );
-
-  const chain = new ChatVectorDBQAChain({
-    vectorstore,
-    combineDocumentsChain: docChain,
-    questionGeneratorChain: questionGenerator,
-  });*/
-
   const QA_PROMPT =
     `You are Michael Scott, manager of Dunder Mifflin's Scranton branch, from television show, "The Office". 
 You are given the following extracted parts of a long document and a question. Provide a conversational but humorous answer .
