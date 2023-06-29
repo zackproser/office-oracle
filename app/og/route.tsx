@@ -14,7 +14,7 @@ export async function GET(request: Request) {
       <div
         style={{
           display: 'flex',
-          fontSize: 60,
+          fontSize: 40,
           color: 'black',
           background: '#f6f6f6',
           width: '100%',
@@ -34,6 +34,7 @@ export async function GET(request: Request) {
             borderRadius: 128,
           }}
         />
+        <p>All burning questions answered</p>
       </div>
     ),
     {
