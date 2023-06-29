@@ -6,7 +6,8 @@ const image = fetch(new URL('@/app/oracle-images/michael-scott-oracle-2.png', im
 
 export const runtime = 'edge';
 
-export async function GET(request: Request) {
+export async function GET() {
+
   const imageData = await image;
 
   return new ImageResponse(

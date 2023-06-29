@@ -36,11 +36,12 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <meta
-        property="og:image"
-        content="https://office-oracle.vercel.app/og"
-      />
-      <head />
+      <head>
+        <meta
+          property="og:image"
+          content="https://office-oracle.vercel.app/og"
+        />
+      </ head>
       <body
         className={cn(
           'font-sans antialiased',
