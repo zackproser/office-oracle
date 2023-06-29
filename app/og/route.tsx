@@ -1,12 +1,13 @@
 import { ImageResponse } from 'next/server';
-// App router includes @vercel/og.
-// No need to install it.
+
+const image = fetch(new URL('@/app/oracle-images/michael-scott-oracle-2.png', import.meta.url)).then((res) =>
+  res.arrayBuffer(),
+);
 
 export const runtime = 'edge';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const username = 'zackproser';
+  const imageData = await image;
 
   return new ImageResponse(
     (
@@ -24,15 +25,15 @@ export async function GET(request: Request) {
           alignItems: 'center',
         }}
       >
+        <h1>The Office Oracle</h1>
         <img
           width="256"
           height="256"
-          src={`https://github.com/${username}.png`}
+          src={imageData}
           style={{
             borderRadius: 128,
           }}
         />
-        <p>github.com/{username}/office-oracle</p>
       </div>
     ),
     {
