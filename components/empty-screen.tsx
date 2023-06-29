@@ -7,6 +7,8 @@ import { IconArrowRight } from '@/components/ui/icons'
 import OfficeOracle from '@/app/oracle-images/office-oracle-7.png'
 import Image from 'next/image'
 
+import OracleImage from '@/components/office-oracle-image'
+
 
 const exampleMessages = [
   {
@@ -18,8 +20,12 @@ const exampleMessages = [
     message: 'What is one of the grossest things that happened in The Office?'
   },
   {
+    heading: 'Answer some Office trivia questions',
+    message: 'What are some interesting things that occurred during Halloween?'
+  },
+  {
     heading: 'Draft an email',
-    message: `Draft an email to my boss about the following: \n`
+    message: `Draft a humorous email to my boss: I'm going to be late because I discovered YouTube`
   }
 ]
 
@@ -31,7 +37,7 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
           Welcome to the Office Oracle!
         </h1>
 
-        <Image className="object-none object-center" src={OfficeOracle} alt="Office Oracle" />
+        {OracleImage()}
 
         <p className="leading-normal text-muted-foreground">
           You can start a conversation here or try the following examples:
