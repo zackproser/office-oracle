@@ -12,7 +12,7 @@ import { Header } from '@/components/header'
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  metadataBase: 'https://office-oracle.vercel.app',
+  metadataBase: new URL('https://office-oracle.vercel.app'),
   title: {
     default: 'Office Oracle AI Chatbot',
     template: `%s - Office Oracle A Chatbot`
