@@ -12,6 +12,7 @@ import { Header } from '@/components/header'
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
+  metadataBase: 'https://office-oracle.vercel.app',
   title: {
     default: 'Office Oracle AI Chatbot',
     template: `%s - Office Oracle A Chatbot`
@@ -35,6 +36,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <meta
+        property="og:image"
+        content="https://office-oracle.vercel.app/og"
+      />
       <head />
       <body
         className={cn(
