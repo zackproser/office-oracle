@@ -2,6 +2,8 @@ import { auth } from '@/auth'
 import { LoginButton } from '@/components/login-button'
 import { redirect } from 'next/navigation'
 
+import OracleImage from '@/components/office-oracle-image'
+
 export default async function SignInPage() {
   const session = await auth()
   // redirect to home if user is already logged in
@@ -9,8 +11,12 @@ export default async function SignInPage() {
     redirect('/')
   }
   return (
-    <div className="flex h-[calc(100vh-theme(spacing.16))] items-center justify-center py-10">
-      <LoginButton />
-    </div>
+    <>
+      <div className="items-center inline-grid gap-4 justify-center grid-cols-j grid-rows-1 py-10">
+        <h1>Welcome to The Office Oracle</h1>
+        {OracleImage()}
+        <div><LoginButton /></div>
+      </div>
+    </>
   )
 }
