@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server';
 
-const image = fetch(new URL('https://office-oracle.vercel.app/michael-scott-oracle-2.png', import.meta.url)).then((res) =>
+const image = fetch(new URL('https://office-oracle.vercel.app/michael-scott-oracle-2.png')).then((res) =>
   res.arrayBuffer()
 );
 
