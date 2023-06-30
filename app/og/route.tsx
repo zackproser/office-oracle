@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/server';
 
 const image = fetch(new URL('@/app/oracle-images/michael-scott-oracle-2.png', import.meta.url)).then((res) =>
-  res.arrayBuffer(),
+  res.arrayBuffer()
 );
 
 export const runtime = 'edge';
@@ -9,6 +9,13 @@ export const runtime = 'edge';
 export async function GET() {
 
   const imageData = await image;
+
+  let imgData = ''
+
+  if (imageData instanceof ArrayBuffer) {
+    imgData = String(imageData)
+    console.dir(imgData)
+  }
 
   return new ImageResponse(
     (
@@ -30,7 +37,7 @@ export async function GET() {
         <img
           width="256"
           height="256"
-          src={imageData}
+          src={imgData}
           style={{
             borderRadius: 128,
           }}
