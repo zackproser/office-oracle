@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server';
 
-const image = fetch(new URL('@/app/oracle-images/michael-scott-oracle-2.png', import.meta.url)).then((res) =>
+const image = fetch(new URL('https://office-oracle.vercel.app/michael-scott-oracle-2.png', import.meta.url)).then((res) =>
   res.arrayBuffer()
 );
 
@@ -9,13 +9,6 @@ export const runtime = 'edge';
 export async function GET() {
 
   const imageData = await image;
-
-  let imgData = ''
-
-  if (imageData instanceof ArrayBuffer) {
-    imgData = String(imageData)
-    console.dir(imgData)
-  }
 
   return new ImageResponse(
     (
@@ -37,7 +30,7 @@ export async function GET() {
         <img
           width="256"
           height="256"
-          src={imgData}
+          src={imageData as unknown as string}
           style={{
             borderRadius: 128,
           }}
