@@ -75,7 +75,7 @@ Question: {question}
 Answer:`
 
   const largerContextModel = new ChatOpenAI({
-    modelName: "gpt-3.5-turbo-16k",
+    modelName: "gpt-4",
     temperature: 0.0,
   });
 
