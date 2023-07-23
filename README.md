@@ -1,5 +1,10 @@
 # The Office Oracle 
 
+## Technical deep dive and tutorial video series
+You can read all about this project, as well as watch my deep-dive tutorial video series on how I built it [here](https://www.zackproser.com/blog/office-oracle-overview)!
+
+---
+
 ![The Office Oracle](./app/oracle-images/office-oracle-splash.png)
 
 This app leverages: 
